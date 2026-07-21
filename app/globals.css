@@ -1,0 +1,115 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'Anton';
+  src: local('Anton');
+}
+
+:root {
+  --ink: #0b0b0b;
+  --paper: #f4ede0;
+  --red: #c81e2c;
+  --red-deep: #7a0e18;
+  --gold: #f0b429;
+  --gold-deep: #c9891a;
+  --green: #1c6b4c;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+body {
+  background-color: var(--ink);
+  color: var(--paper);
+  font-family: var(--font-body);
+  overflow-x: hidden;
+  max-width: 100%;
+  position: relative;
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+/* Rough torn paper edge */
+.torn-top {
+  clip-path: polygon(
+    0% 6%, 4% 0%, 9% 5%, 14% 1%, 20% 6%, 26% 0%, 32% 5%, 38% 1%,
+    44% 6%, 50% 0%, 56% 5%, 62% 1%, 68% 6%, 74% 0%, 80% 5%, 86% 1%,
+    92% 6%, 96% 0%, 100% 5%, 100% 100%, 0% 100%
+  );
+}
+
+.torn-bottom {
+  clip-path: polygon(
+    0% 0%, 100% 0%, 100% 95%, 96% 100%, 92% 94%, 86% 99%, 80% 95%,
+    74% 100%, 68% 94%, 62% 99%, 56% 95%, 50% 100%, 44% 95%, 38% 99%,
+    32% 95%, 26% 100%, 20% 95%, 14% 99%, 9% 95%, 4% 100%, 0% 95%
+  );
+}
+
+/* Halftone dot texture overlay */
+.halftone::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle, rgba(0,0,0,0.35) 1px, transparent 1px);
+  background-size: 6px 6px;
+  mix-blend-mode: multiply;
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+/* Grain texture */
+.grain {
+  position: relative;
+}
+.grain::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.06;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.text-stroke {
+  -webkit-text-stroke: 2px var(--ink);
+  paint-order: stroke fill;
+}
+
+.marquee-track {
+  animation: marquee 22s linear infinite;
+}
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.wobble {
+  animation: wobble 6s ease-in-out infinite;
+}
+@keyframes wobble {
+  0%, 100% { transform: rotate(-3deg) translateY(0px); }
+  50% { transform: rotate(2deg) translateY(-6px); }
+}
+
+.crayon-underline {
+  background-image: linear-gradient(var(--gold) 0 100%);
+  background-repeat: no-repeat;
+  background-size: 100% 40%;
+  background-position: 0 88%;
+}
+
+@keyframes flicker {
+  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% { opacity: 1; }
+  20%, 22%, 24%, 55% { opacity: 0.4; }
+}
+.neon-flicker {
+  animation: flicker 5s infinite;
+}
