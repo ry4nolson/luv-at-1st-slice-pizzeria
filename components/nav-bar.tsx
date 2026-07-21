@@ -8,11 +8,10 @@ const WORDMARK_URL =
   "https://galaxy-prod.tlcdn.com/gen/user_30fRMzu78brBsb39sqp02zFAOkl/63de097a-b842-438e-a6b2-bf174055b186.png";
 
 const links = [
+  { href: "#about", label: "Our Story" },
   { href: "#slices", label: "Slices" },
   { href: "#pies", label: "Whole Pies" },
-  { href: "#flatbread", label: "Flatbread" },
-  { href: "#sweets", label: "Icees & Sweets" },
-  { href: "#patties", label: "Patties" },
+  { href: "#faq", label: "FAQ" },
   { href: "#visit", label: "Visit Us" },
 ];
 

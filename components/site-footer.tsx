@@ -1,4 +1,4 @@
-import { MapPin, Heart, Instagram } from "lucide-react";
+import { MapPin, Heart, Instagram, Phone } from "lucide-react";
 
 export function SiteFooter() {
   return (
@@ -8,9 +8,18 @@ export function SiteFooter() {
           LUV <span className="text-[var(--red)]">&#9829;</span> 1ST SLICE
         </p>
 
-        <div className="flex items-center gap-2 text-sm text-[var(--paper)]/70">
-          <MapPin className="h-4 w-4 text-[var(--gold)]" />
-          8440 Phelan Blvd. Suite 300 &bull; Beaumont, TX 77706
+        <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-[var(--paper)]/70">
+          <span className="flex items-center gap-2">
+            <MapPin className="h-4 w-4 text-[var(--gold)]" />
+            8440 Phelan Blvd. &bull; Beaumont, TX 77706
+          </span>
+          <a
+            href="tel:+14092285902"
+            className="flex items-center gap-2 hover:text-[var(--gold)]"
+          >
+            <Phone className="h-4 w-4 text-[var(--gold)]" />
+            (409) 228-5902
+          </a>
         </div>
 
         <div className="flex items-center gap-2 font-heading text-sm text-[var(--red)]">
