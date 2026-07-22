@@ -1,16 +1,5 @@
 import { MenuRow, MenuPanelTitle } from "@/components/menu-row";
-
-const snowCones = [
-  { name: "Small", price: "$5.00" },
-  { name: "Medium", price: "$6.00" },
-  { name: "Large", price: "$7.00" },
-];
-
-const waterIce = [
-  { name: "1 Scoop", price: "$3.00" },
-  { name: "2 Scoops", price: "$6.00" },
-  { name: "3 Scoops", price: "$9.00" },
-];
+import { pineappleStuffedFruit, snowCones, waterIce } from "@/lib/menu-data";
 
 export function SweetsSection() {
   return (
@@ -34,28 +23,27 @@ export function SweetsSection() {
 
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
           <div className="rounded-2xl border-2 border-[var(--gold)]/40 bg-[#152019] p-6 sm:p-8">
-            <MenuPanelTitle color="green">Pineapple Stuffed Fruit</MenuPanelTitle>
+            <MenuPanelTitle color="green">{pineappleStuffedFruit.title}</MenuPanelTitle>
             <div className="mt-4">
-              <MenuRow name="Whole Pineapple" price="$14.99" />
-            </div>
-            <p className="mt-2 text-xs italic text-[var(--paper)]/55">
-              Packed fresh with seasonal fruit
-            </p>
-          </div>
-
-          <div className="rounded-2xl border-2 border-[var(--gold)]/40 bg-[#152019] p-6 sm:p-8">
-            <MenuPanelTitle>Snow Cones</MenuPanelTitle>
-            <div className="mt-4 divide-y divide-[var(--paper)]/10">
-              {snowCones.map((s) => (
+              {pineappleStuffedFruit.items.map((s) => (
                 <MenuRow key={s.name} {...s} />
               ))}
             </div>
           </div>
 
           <div className="rounded-2xl border-2 border-[var(--gold)]/40 bg-[#152019] p-6 sm:p-8">
-            <MenuPanelTitle color="red">Water Ice</MenuPanelTitle>
+            <MenuPanelTitle>{snowCones.title}</MenuPanelTitle>
             <div className="mt-4 divide-y divide-[var(--paper)]/10">
-              {waterIce.map((s) => (
+              {snowCones.items.map((s) => (
+                <MenuRow key={s.name} {...s} />
+              ))}
+            </div>
+          </div>
+
+          <div className="rounded-2xl border-2 border-[var(--gold)]/40 bg-[#152019] p-6 sm:p-8">
+            <MenuPanelTitle color="red">{waterIce.title}</MenuPanelTitle>
+            <div className="mt-4 divide-y divide-[var(--paper)]/10">
+              {waterIce.items.map((s) => (
                 <MenuRow key={s.name} {...s} />
               ))}
             </div>

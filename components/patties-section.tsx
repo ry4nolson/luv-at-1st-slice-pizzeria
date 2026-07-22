@@ -1,6 +1,5 @@
 import { MenuPanelTitle } from "@/components/menu-row";
-
-const patties = ["Mild Beef", "Spicy Beef", "Jerk Chicken", "Regular Chicken"];
+import { jamaicanPatties } from "@/lib/menu-data";
 
 export function PattiesSection() {
   return (
@@ -11,12 +10,10 @@ export function PattiesSection() {
             <span className="font-heading text-xs tracking-[0.4em] text-[var(--red)]">
               HOMEMADE
             </span>
-            <MenuPanelTitle color="gold">
-              Homemade Jamaican Beef Patties
-            </MenuPanelTitle>
+            <MenuPanelTitle color="gold">{jamaicanPatties.title}</MenuPanelTitle>
 
             <ul className="mt-6 space-y-3">
-              {patties.map((p) => (
+              {jamaicanPatties.flavors.map((p) => (
                 <li
                   key={p}
                   className="flex items-center gap-3 font-heading text-lg text-[var(--paper)]/90"
@@ -30,13 +27,13 @@ export function PattiesSection() {
 
           <div className="flex flex-col items-center justify-center rounded-2xl border-2 border-dashed border-[var(--gold)]/50 bg-[var(--ink)]/40 p-10 text-center">
             <p className="font-heading text-sm tracking-[0.3em] text-[var(--paper)]/60">
-              EACH
+              {jamaicanPatties.priceLabel}
             </p>
             <p className="font-display text-7xl text-[var(--gold)] sm:text-8xl">
-              $4.99
+              {jamaicanPatties.price}
             </p>
             <p className="mt-2 text-sm text-[var(--paper)]/60">
-              Flaky, golden, baked fresh in-house
+              {jamaicanPatties.note}
             </p>
           </div>
         </div>

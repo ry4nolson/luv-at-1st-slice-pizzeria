@@ -1,21 +1,10 @@
 import { MenuRow, MenuPanelTitle } from "@/components/menu-row";
-
-const sizes = [
-  { name: '16" Large', price: "$19.99" },
-  { name: '18" XL', price: "$24.99" },
-];
-
-const toppings = [
-  { name: "Pepperoni", price: "$2.00" },
-  { name: "Sausage", price: "$2.00" },
-  { name: "Bacon", price: "$3.00" },
-  { name: "Onions", price: "$2.00" },
-  { name: "Green Peppers", price: "$2.00" },
-  { name: "Black Olives", price: "$2.00" },
-  { name: "Jalapenos", price: "$2.00" },
-  { name: "Extra Cheese", price: "$3.00" },
-  { name: "Extra Oxtail", price: "$6.00" },
-];
+import {
+  nyStylePizzaSizes,
+  nyStylePizzaChoices,
+  premiumOxtailPizza,
+  optionalToppings,
+} from "@/lib/menu-data";
 
 export function PiesSection() {
   return (
@@ -39,9 +28,9 @@ export function PiesSection() {
 
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
           <div className="rounded-2xl border-2 border-[var(--gold)]/40 bg-[#1c1010] p-6 sm:p-8">
-            <MenuPanelTitle>New York Style Pizzas</MenuPanelTitle>
+            <MenuPanelTitle>{nyStylePizzaSizes.title}</MenuPanelTitle>
             <div className="mt-4 divide-y divide-[var(--paper)]/10">
-              {sizes.map((s) => (
+              {nyStylePizzaSizes.items.map((s) => (
                 <MenuRow key={s.name} {...s} />
               ))}
             </div>
@@ -49,16 +38,16 @@ export function PiesSection() {
               CHOOSE FROM:
             </p>
             <p className="mt-2 text-sm leading-relaxed text-[var(--paper)]/75">
-              Cheese &bull; Pepperoni &bull; Sausage &bull; Margherita &bull;
-              Veggie &bull; Buffalo Chicken &bull; Boudain &amp; Bacon &bull;
-              5 Borough (Meat Lovers)
+              {nyStylePizzaChoices.join(" • ")}
             </p>
           </div>
 
           <div className="rounded-2xl border-2 border-[var(--red)]/50 bg-[#1c1010] p-6 sm:p-8">
-            <MenuPanelTitle color="red">Premium Oxtail Pizza</MenuPanelTitle>
+            <MenuPanelTitle color="red">{premiumOxtailPizza.title}</MenuPanelTitle>
             <div className="mt-4">
-              <MenuRow name='One Size (18")' price="$49.99" />
+              {premiumOxtailPizza.items.map((s) => (
+                <MenuRow key={s.name} {...s} />
+              ))}
             </div>
             <p className="mt-4 rounded-lg border border-[var(--gold)]/30 bg-[var(--ink)]/40 p-3 text-xs italic text-[var(--paper)]/60">
               Good Food. Good Vibes. Made with Love.
@@ -66,9 +55,9 @@ export function PiesSection() {
           </div>
 
           <div className="rounded-2xl border-2 border-[var(--gold)]/40 bg-[#1c1010] p-6 sm:p-8">
-            <MenuPanelTitle>Optional Toppings</MenuPanelTitle>
+            <MenuPanelTitle>{optionalToppings.title}</MenuPanelTitle>
             <div className="mt-4 divide-y divide-[var(--paper)]/10">
-              {toppings.map((s) => (
+              {optionalToppings.items.map((s) => (
                 <MenuRow key={s.name} {...s} />
               ))}
             </div>

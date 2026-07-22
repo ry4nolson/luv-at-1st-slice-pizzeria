@@ -1,17 +1,5 @@
 import { MenuPanelTitle } from "@/components/menu-row";
-
-const flatbreads = [
-  {
-    name: "Keke Special",
-    price: "$14.99",
-    desc: "Cheese, Jalapeno Flakes, Oxtail, Tomato Sauce, Hot Honey",
-  },
-  {
-    name: "Philly Steak",
-    price: "$14.99",
-    desc: "Steak, Onions, Green Peppers, Mozzarella Cheese",
-  },
-];
+import { flatbreadSpecials } from "@/lib/menu-data";
 
 export function FlatbreadSection() {
   return (
@@ -27,7 +15,7 @@ export function FlatbreadSection() {
         </div>
 
         <div className="grid grid-cols-1 gap-8 sm:grid-cols-2">
-          {flatbreads.map((f) => (
+          {flatbreadSpecials.map((f) => (
             <div
               key={f.name}
               className="group relative overflow-hidden rounded-2xl border-2 border-[var(--green)]/50 bg-[#101a15] p-7 transition-transform hover:-translate-y-1"

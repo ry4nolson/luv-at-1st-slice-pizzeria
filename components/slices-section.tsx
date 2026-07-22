@@ -1,30 +1,10 @@
 import { MenuRow, MenuPanelTitle } from "@/components/menu-row";
-
-const slices = [
-  { name: "Boudain & Bacon Slice", price: "$6.99" },
-  { name: "Buffalo Chicken Slice", price: "$6.99" },
-  { name: "Cheese Slice", price: "$4.99" },
-  { name: "Margherita Slice", price: "$5.99" },
-  { name: "Oxtail Slice", price: "$12.99" },
-  { name: "Pepperoni Slice", price: "$5.99" },
-  { name: "Sausage Slice", price: "$5.99" },
-  { name: "Veggie Slice", price: "$6.99" },
-  {
-    name: "5 Borough (Meat Lovers) Slice",
-    price: "$6.99",
-    note: "Pepperoni, Bacon, Buffalo Chicken, Italian Sausage, Beef",
-  },
-];
-
-const sides = [
-  { name: "Cheese Garlic Bread", price: "$8.99" },
-];
-
-const lemonade = [
-  { name: "Small", price: "$2.99" },
-  { name: "Medium", price: "$3.99" },
-  { name: "Large", price: "$4.99" },
-];
+import {
+  pizzaSlices,
+  cheeseGarlicBread,
+  luvLemonade,
+  cannedDrinks,
+} from "@/lib/menu-data";
 
 export function SlicesSection() {
   return (
@@ -41,9 +21,9 @@ export function SlicesSection() {
 
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
           <div className="lg:col-span-2 rounded-2xl border-2 border-[var(--gold)]/40 bg-[#151515] p-6 sm:p-8">
-            <MenuPanelTitle>Grab a Slice</MenuPanelTitle>
+            <MenuPanelTitle>{pizzaSlices.title}</MenuPanelTitle>
             <div className="mt-4 divide-y divide-[var(--paper)]/10">
-              {slices.map((s) => (
+              {pizzaSlices.items.map((s) => (
                 <MenuRow key={s.name} {...s} />
               ))}
             </div>
@@ -51,27 +31,29 @@ export function SlicesSection() {
 
           <div className="flex flex-col gap-8">
             <div className="rounded-2xl border-2 border-[var(--gold)]/40 bg-[#151515] p-6">
-              <MenuPanelTitle color="red">Cheese Garlic Bread</MenuPanelTitle>
+              <MenuPanelTitle color="red">{cheeseGarlicBread.title}</MenuPanelTitle>
               <div className="mt-4 divide-y divide-[var(--paper)]/10">
-                {sides.map((s) => (
+                {cheeseGarlicBread.items.map((s) => (
                   <MenuRow key={s.name} {...s} />
                 ))}
               </div>
             </div>
 
             <div className="rounded-2xl border-2 border-[var(--gold)]/40 bg-[#151515] p-6">
-              <MenuPanelTitle color="green">Luv Lemonade</MenuPanelTitle>
+              <MenuPanelTitle color="green">{luvLemonade.title}</MenuPanelTitle>
               <div className="mt-4 divide-y divide-[var(--paper)]/10">
-                {lemonade.map((s) => (
+                {luvLemonade.items.map((s) => (
                   <MenuRow key={s.name} {...s} />
                 ))}
               </div>
             </div>
 
             <div className="rounded-2xl border-2 border-[var(--gold)]/40 bg-[#151515] p-6">
-              <MenuPanelTitle>Canned Drinks</MenuPanelTitle>
+              <MenuPanelTitle>{cannedDrinks.title}</MenuPanelTitle>
               <div className="mt-4 divide-y divide-[var(--paper)]/10">
-                <MenuRow name="Any Can" price="$2.00" note="Coca-Cola, Sprite, Fanta, Dr Pepper" />
+                {cannedDrinks.items.map((s) => (
+                  <MenuRow key={s.name} {...s} />
+                ))}
               </div>
             </div>
           </div>
